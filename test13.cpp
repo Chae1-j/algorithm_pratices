@@ -11,6 +11,8 @@ using namespace std;
 vector<int> graph[100001];
 int visit[100001];
 int sol[100001];
+int n;
+int ans[100001];
 
 // 3. solve 함수
 void solve() {
@@ -28,6 +30,16 @@ int main() {
     // 초기화
     for(int j = 0; j < 100001; j++) {
       graph[j].empty(); // empty는 vector의 값을 초기화하는 함수
+
+      //n 입력
+      fscanf_s(fp, "%d", &n);
+
+      for(int j = 0; j < n-1; j++) {
+        fscanf_s(fp, "%d %d", &u, &v);
+        graph[u].push_back(v);
+        graph[v].push_back(u);
+      }
+
     }
 
     // solve() 호출
